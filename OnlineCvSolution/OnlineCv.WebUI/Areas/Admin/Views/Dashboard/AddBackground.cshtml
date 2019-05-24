@@ -1,0 +1,74 @@
+﻿@model IEnumerable<OnlineCv.WebUI.Models.Entity.AcademicBackground>
+@{
+    Layout = null;
+}
+<!-- Academic Background -->
+<form method="post" action="@Url.Action("AddBackgrounds","Dashboard")">
+    <div class="inside-sec margin-top-30">
+        <!-- Academic Background -->
+        <h5 class="tittle">Academic Background</h5>
+        <div class="padding-30 exp-history">
+            <div class="inside-sec margin-top-30">
+                <!-- Academic Background -->
+                <div class="padding-30 exp-history">
+                    @foreach (var item in Model)
+                    {
+                        <div class="exp">
+                            <div class="media-left"> <span class="sun">@item.Qualification</span> </div>
+                            <div class="media-body">
+                                <!-- COmpany Logo -->
+                                <div class="company-logo"> <span class="diploma"><i class="fa fa-graduation-cap"></i> Download Diploma</span> </div>
+                                <h6>@item.UniversityName</h6>
+                                <p>@item.Degree</p>
+                                <p>@item.YearofObtention</p>
+                                <p>@item.Details</p>
+                                <button class="btn btn-sm" type="button">Edit</button>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+            <!-- ADD EXP -->
+            <div class="exp">
+                <div class="row">
+                    <div class="col-sm-7">
+                        <label>
+                            Qualification
+                            <input type="text" name="qualification" class="form-control" placeholder="YYYY - YYYY">
+                        </label>
+                        <label>
+                            Degree
+                            <input type="text" name="degree" class="form-control" placeholder="">
+                        </label>
+                        <label>
+                            Institute / University Name
+                            <input type="text" name="UniversityName" class="form-control" placeholder="">
+                        </label>
+                        <label>
+                            Year of Obtention
+                            <input type="text" name="YearofObtention" class="form-control" placeholder="">
+                        </label>
+                    </div>
+
+                    <!-- UPLOAD IMG -->
+                    <div class="col-sm-5">
+                        <label class="btn-file">
+                            <i class="fa fa-camera"></i> Click to add diploma
+                            <input type="file" style="display: none;">
+                        </label>
+                    </div>
+
+                    <!-- ADD DETAIL -->
+                    <div class="col-sm-12">
+                        <label>
+                            Details
+                            <textarea class="form-control" placeholder=""></textarea>
+                        </label>
+                        <!-- ADD MORE -->
+                        <button type="submit" class="btn margin-top-20"><i class="fa fa-plus"></i> Add Background</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>

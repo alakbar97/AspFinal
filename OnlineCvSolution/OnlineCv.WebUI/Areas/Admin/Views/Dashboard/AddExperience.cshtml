@@ -1,0 +1,77 @@
+﻿@model IEnumerable<OnlineCv.WebUI.Models.Entity.ProfessionalExperience>
+@{
+    Layout = null;
+}
+<form method="post" action="@Url.Action("AddExperiences","Dashboard")">
+    <div class="inside-sec margin-top-30">
+
+        <!-- Professional Experience -->
+        <div class="inside-sec margin-top-30">
+            <!-- Professional Experience -->
+            <h5 class="tittle">Professional Experience</h5>
+            <div class="padding-30 exp-history">
+                @foreach (var item in Model)
+                {
+                    <!-- Wordpress Developer -->
+                    <div class="exp">
+                        <div class="media-left"> <span class="sun">@item.Duration</span> </div>
+                        <div class="media-body">
+
+                            <!-- COmpany Logo -->
+                            <div class="company-logo"> <img src="~/Template/images/company-logo-1.jpg" alt=""> </div>
+                            <h6>@item.JobTitle</h6>
+                            <p>@item.CompanyName</p>
+                            <p>@item.Location</p>
+                            <p> @item.Details</p>
+                            <p class="margin-top-10"><button class="btn btn-sm btn-success">Edit</button> </p>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+        <div class="padding-30 exp-history">
+
+            <!-- ADD Professional -->
+            <div class="exp">
+                <div class="row">
+                    <div class="col-sm-7">
+                        <label>
+                            Duration
+                            <input type="text" name="duration" class="form-control" placeholder="YYYY - YYYY">
+                        </label>
+                        <label>
+                            Job Title
+                            <input type="text" name="jobtitle" class="form-control" placeholder="">
+                        </label>
+                        <label>
+                            Company Name
+                            <input type="text" name="companyname" class="form-control" placeholder="">
+                        </label>
+                        <label>
+                            Location
+                            <input type="text" name="location" class="form-control" placeholder="">
+                        </label>
+                    </div>
+
+                    <!-- UPLOAD IMG -->
+                    <div class="col-sm-5">
+                        <label class="btn-file">
+                            <i class="fa fa-camera"></i> Click to attach logo
+                            <input type="file" name="mediaurl" style="display: none;">
+                        </label>
+                    </div>
+
+                    <!-- ADD DETAILS -->
+                    <div class="col-sm-12">
+                        <label>
+                            Details
+                            <textarea class="form-control" name="details" placeholder=""></textarea>
+                        </label>
+                        <!-- ADD MORE-->
+                        <button type="submit" class="btn margin-top-20"><i class="fa fa-plus"></i> Add Experience</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>

@@ -1,0 +1,14 @@
+﻿@model IEnumerable<OnlineCv.WebUI.Models.Entity.Skill>
+@{
+    Layout = null;
+}
+<!--  Skills -->
+<div class="col-sm-6">
+    <select class="selectpicker">
+        @foreach (var item in Model)
+        {
+            <option>@item.Name</option>
+        }
+    </select>
+    <span class="add-custm">or <a href="#."> Add A Custom Skills</a></span>
+</div>
