@@ -1,0 +1,60 @@
+﻿@model OnlineCv.WebUI.Models.Entity.PersonDetails
+    @{ 
+        Layout = null;
+    }
+<h5 class="tittle">Professional Details</h5>
+<form action="@Url.Action("addInfos","Dashboard")" method="post" enctype="multipart/form-data">
+    <div class="form-group">
+        <label class="form-control image-container" style="height: 250px;margin: 0;padding: 0;">
+            <img src="@(string.IsNullOrWhiteSpace(Model.MediaUrl)?"":Href("~/Template/media/"+Model.MediaUrl))" id="news-image" style="width:100%;height:100%"/>
+            <i class="empty-icon"></i>
+            <a href="javascript:removePhoto()"><i class="clear-icon header-right-button"></i></a>
+            @Html.EditorFor(model => model.MediaUrl,
+                    new { htmlAttributes = new { @class = "form-control", type = "file",style="display:none", accept = "image/*", onchange= "readURL(this)",id= "mediaUrl" } })
+        </label>
+        @Html.ValidationMessageFor(model => model.MediaUrl, "", new { @class = "text-danger" })
+    </div>
+    <ul class="personal-info">
+        <li>
+            <p>
+                <span>
+                    <input class="form-control" type="text" name="name" value="@Model.Name">
+                </span>
+                <input class="form-control" type="text" name="age" value="@Model.Age">
+            </p>
+        </li>
+        <li>
+            <p>
+                <span>
+                    <input class="form-control" type="text" name="location" value="@Model.Location">
+                </span>
+                <input class="form-control" type="text" name="experience" value="@Model.Experience">
+            </p>
+        </li>
+        <li>
+            <p>
+                <span>
+                    <input class="form-control" type="text" name="degree" value="@Model.Degree">
+                </span>
+                <input class="form-control" type="text" name="careerlevel" value="@Model.CareerLevel">
+            </p>
+        </li>
+        <li>
+            <p>
+                <span>
+                    <input class="form-control" type="text" name="phone" value="@Model.Phone">
+                </span>
+                <input class="form-control" type="text" name="fax" value="@Model.Fax">
+            </p>
+        </li>
+        <li>
+            <p>
+                <span>
+                    <input class="form-control" type="text" name="email" value="@Model.Email">
+                </span>
+                <input class="form-control" type="text" name="website" value="@Model.Website">
+            </p>
+        </li>
+        <li> <button class="btn" type="submit"><i class="fa fa-plus"></i> ADD INFO</button> </li>
+    </ul>
+</form>

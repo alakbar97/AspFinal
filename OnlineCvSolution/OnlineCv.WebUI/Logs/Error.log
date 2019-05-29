@@ -1,0 +1,35 @@
+2019-05-29 13:47:05.5547 FATAL    -Object reference not set to an instance of an object. 
+2019-05-29 13:49:34.7132 FATAL    -Object reference not set to an instance of an object. 
+2019-05-29 13:55:55.1569 FATAL    -Object reference not set to an instance of an object. 
+2019-05-29 13:56:04.5494 FATAL    -Object reference not set to an instance of an object. 
+2019-05-29 13:57:05.8936 FATAL    -Object reference not set to an instance of an object. 
+2019-05-29 13:58:54.4753 FATAL    -Object reference not set to an instance of an object. 
+2019-05-29 14:03:54.6676 FATAL    -Object reference not set to an instance of an object. 
+2019-05-29 14:22:14.3121 FATAL    -The view 'resume' or its master was not found or no view engine supports the searched locations. The following locations were searched:
+~/Views/dashboard/resume.aspx
+~/Views/dashboard/resume.ascx
+~/Views/Shared/resume.aspx
+~/Views/Shared/resume.ascx
+~/Views/dashboard/resume.cshtml
+~/Views/dashboard/resume.vbhtml
+~/Views/Shared/resume.cshtml
+~/Views/Shared/resume.vbhtml 
+2019-05-29 14:55:49.1250 FATAL    -Object reference not set to an instance of an object. 
+2019-05-29 14:55:53.2150 FATAL    -Object reference not set to an instance of an object. 
+2019-05-29 14:58:08.9479 FATAL    - 
+2019-05-29 14:58:30.7656 FATAL    - 
+2019-05-29 14:58:36.7246 FATAL    - 
+2019-05-29 15:00:02.1736 FATAL    - 
+2019-05-29 15:00:37.3904 FATAL    - 
+2019-05-29 15:11:46.8619 FATAL    - 
+2019-05-29 15:33:03.5892 FATAL    - 
+2019-05-29 15:37:11.6296 FATAL    - 
+2019-05-29 15:38:02.8355 FATAL    - 
+2019-05-29 15:40:16.8268 FATAL    - 
+2019-05-29 17:01:05.8492 FATAL    -The ViewData item that has the key 'CategoryId' is of type 'System.Int32' but must be of type 'IEnumerable<SelectListItem>'. 
+2019-05-29 17:01:09.4471 FATAL    -The ViewData item that has the key 'CategoryId' is of type 'System.Int32' but must be of type 'IEnumerable<SelectListItem>'. 
+2019-05-29 20:33:39.3785 FATAL    -The model item passed into the dictionary is of type 'System.Collections.Generic.List`1[OnlineCv.WebUI.Models.Entity.Bio]', but this dictionary requires a model item of type 'System.Collections.Generic.IEnumerable`1[OnlineCv.WebUI.Models.Entity.AcademicBackground]'. 
+2019-05-29 20:36:36.1275 FATAL    -The model item passed into the dictionary is of type 'System.Collections.Generic.List`1[OnlineCv.WebUI.Models.Entity.Bio]', but this dictionary requires a model item of type 'System.Collections.Generic.List`1[OnlineCv.WebUI.Models.Entity.AcademicBackground]'. 
+2019-05-29 20:42:58.9933 FATAL    -The model item passed into the dictionary is of type 'System.Collections.Generic.List`1[OnlineCv.WebUI.Models.Entity.Bio]', but this dictionary requires a model item of type 'System.Collections.Generic.IEnumerable`1[OnlineCv.WebUI.Models.Entity.AcademicBackground]'. 
+2019-05-29 21:00:30.5931 FATAL    -The model item passed into the dictionary is of type 'System.Collections.Generic.List`1[OnlineCv.WebUI.Models.Entity.ProfessionalExperience]', but this dictionary requires a model item of type 'System.Collections.Generic.IEnumerable`1[OnlineCv.WebUI.Models.Entity.AcademicBackground]'. 
+2019-05-29 21:00:34.6631 FATAL    -The model item passed into the dictionary is of type 'System.Collections.Generic.List`1[OnlineCv.WebUI.Models.Entity.ProfessionalExperience]', but this dictionary requires a model item of type 'System.Collections.Generic.IEnumerable`1[OnlineCv.WebUI.Models.Entity.AcademicBackground]'. 

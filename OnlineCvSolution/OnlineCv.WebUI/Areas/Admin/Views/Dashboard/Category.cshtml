@@ -1,0 +1,25 @@
+﻿@model IEnumerable<OnlineCv.WebUI.Models.Entity.Category>
+@{
+    Layout = null;
+}
+<!-- Categories -->
+<div class="col-sm-6">
+    <input type="hidden" id="c1" name="CategoryId"/>
+    <select id="12" name="categoryId" class="selectpicker">
+        <option disabled selected value>Select Category</option>
+        @foreach (var item in Model)
+        {
+            <option value="@item.Id">@item.Name</option>
+        }
+    </select> <br /> <br />
+
+    <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#exampleModal2">
+        Add Custom Category to Dropdown
+    </button></div>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+<script>
+    $("#12").change(function () {
+        var selected = $(this).children("option:selected").val();
+        $("#c1").val(selected);
+    });
+</script>

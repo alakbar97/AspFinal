@@ -1,0 +1,154 @@
+﻿@model IEnumerable<OnlineCv.WebUI.Models.Entity.AcademicBackground>
+@{
+    Layout = null;
+}
+<div class="inside-sec margin-top-30">
+    <!-- Academic Background -->
+    <div id="ex" class="padding-30 exp-history">
+        @foreach (var item in Model)
+        {
+            <div class="exp">
+                <div class="media-left"> <span class="sun">@item.Qualification</span> </div>
+                <div class="media-body">
+                    <!-- COmpany Logo -->
+                    <div class="company-logo" style="overflow:hidden; width: 150px"> <img src="@(string.IsNullOrWhiteSpace(item.mediaUrl)?"":Href("~/Template/media/"+item.mediaUrl))" /> </div>
+                    <h6>@item.UniversityName</h6>
+                    <p>@item.Degree</p>
+                    <p>@item.YearofObtention</p>
+                    <p>@item.Details</p>
+                    <button class="btn btn-sm btn-warning"
+                            type="button"
+                            data-toggle="modal"
+                            data-target="#answer"
+                            onclick="openModal(@item.Id)">
+                        <i>Edit</i>
+                    </button>
+                    <button class="btn btn-sm" type="button" onclick="delB(@item.Id)">Delete</button>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+<!-- Academic Background -->
+<form method="post" action="@Url.Action("AddBackgrounds","Dashboard")" enctype="multipart/form-data">
+    <div class="inside-sec margin-top-30">
+        <!-- Academic Background -->
+        <h5 class="tittle">Academic Background</h5>
+        <div class="padding-30 exp-history">
+            <!-- ADD EXP -->
+            <div class="exp">
+                <div class="row">
+                    <div class="col-sm-7">
+                        <label>
+                            Qualification
+                            <input type="text" name="qualification" class="form-control" placeholder="YYYY - YYYY">
+                        </label>
+                        <label>
+                            Degree
+                            <input type="text" name="degree" class="form-control" placeholder="">
+                        </label>
+                        <label>
+                            Institute / University Name
+                            <input type="text" name="UniversityName" class="form-control" placeholder="">
+                        </label>
+                        <label>
+                            Year of Obtention
+                            <input type="text" name="YearofObtention" class="form-control" placeholder="">
+                        </label>
+                    </div>
+
+                    <!-- UPLOAD IMG -->
+                    <label class="form-control image-container" style="height:270px;overflow:hidden;margin: 0;padding: 0;">
+                        <img src="" id="newsimage2" style="width:100%;height:100%"/>
+                        <i class="empty-icon"></i>
+                        <a href="javascript:removePhoto2()"><i class="clear-icon header-right-button"></i></a>
+                        <input class="form-control" name="mediaUrl" type="file" style="display:none" accept="image/*" onchange="readURL2(this)" id="mediaUrl2" />
+                    </label>
+
+                    <!-- ADD DETAIL -->
+                    <div class="col-sm-12">
+                        <label>
+                            Details
+                            <textarea class="form-control" placeholder=""></textarea>
+                        </label>
+                        <!-- ADD MORE -->
+                        <button type="submit" class="btn margin-top-20"><i class="fa fa-plus"></i> Add Background</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+
+<!-- Modal -->
+<div class="modal fade" id="answer" tabindex="-1" role="dialog" aria-labelledby="answerLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="answerLabel">Modal title</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body" id="modalbody">
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" onclick="send()" id="sendInfo" class="btn btn-primary">SaveChanges</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Bağlamaq</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+        function openModal(id) {
+                 $.ajax({
+                     url: '@Url.Action("Details","Dashboard")/' + id,
+                     type: 'GET',
+                     success: function (response) {
+
+                         $('#modalbody').html(response);
+
+                         $("#answer").modal();
+                     },
+                     error: function (response) {
+                         console.log(response);
+                     }
+                        });
+        }
+</script>
+<script>
+    function send() {
+        var info = $("#modal").serialize();
+        var url = $("#mediaUrl").val();
+        $.ajax({
+            url: '@Url.Action("saveBack", "Dashboard")',
+            type: "POST",
+            data: info,
+                success: function (response) {
+
+                    $('#ex').html(response);
+                },
+                error: function (response) {
+                    console.error(response);
+                }
+            })
+    }
+</script>
+<script>
+    function delB(id) {
+        $.ajax({
+            url: '@Url.Action("deleteBack", "Dashboard")',
+            type: "POST",
+            data: { id: id },
+            success: function (response) {
+                console.log(response)
+                    $('#ex').html(response);
+                },
+                error: function (response) {
+                    console.error(response);
+                }
+            })
+    }
+</script>

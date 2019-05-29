@@ -1,0 +1,45 @@
+﻿@model OnlineCv.WebUI.Models.Entity.Bio
+<div class="form-horizontal">
+    <h4>Bio</h4>
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    <input name="CategoryId" value="@Model.CategoryId" type="hidden"/>
+    <input name="SkillId" value="@Model.SkillId" type="hidden"/>
+    <input name="id" id="id1"  value="@Model.Id" type="hidden"/>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Description, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.Description, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.SkillLevel, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.SkillLevel, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.SkillLevel, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.SkillDescription, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.SkillDescription, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.SkillDescription, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="col-sm-4">
+        <div class="radio radio-inline">
+            <input type="radio" id="inlineRadio1" value="true" name="IsBar">
+            <label for="inlineRadio1"> Display As Bar </label>
+        </div>
+    </div>
+    <div class="col-sm-4">
+        <div class="radio radio-inline">
+            <input type="radio" id="inlineRadio1" value="true" name="IsTag">
+            <label for="inlineRadio1"> Display As Tag </label>
+        </div>
+    </div>
+</div>
