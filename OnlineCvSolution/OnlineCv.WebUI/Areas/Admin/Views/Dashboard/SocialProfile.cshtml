@@ -1,0 +1,52 @@
+﻿@model OnlineCv.WebUI.Models.Entity.SocialProfiles
+@{
+    Layout = null;
+}
+<!-- Social Profiles -->
+<h5 class="tittle">Social Profiles</h5>
+<form id="sc">
+    <div id="soc" class="social-icon bor-btm padding-25">
+        <ul>
+            <li>
+                <i class="fa fa-facebook"></i>
+                <input class="form-control" type="text" name="facebook" value="@Model.Facebook">
+            </li>
+            <li>
+                <i class="fa fa-twitter"></i>
+                <input class="form-control" type="text" name="twitter" value="@Model.Twitter">
+            </li>
+            <li>
+                <i class="fa fa-google-plus"></i>
+                <input class="form-control" type="text" name="google" value="@Model.Google">
+            </li>
+            <li>
+                <i class="fa fa-linkedin"></i>
+                <input class="form-control" type="text" name="linked" value="@Model.Linked">
+            </li>
+            <li>
+                <i class="fa fa-skype"></i>
+                <input class="form-control" type="text" name="skype" value="@Model.Skype">
+            </li>
+        </ul> <br />
+        <button type="button" onclick="addPro()" class="btn btn-sm">Add</button>
+    </div>
+</form>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script>
+    function addPro() {
+        var i = $("#sc").serialize();
+        $.ajax({
+            url: '@Url.Action("Socials","Dashboard")',
+            type: "POST",
+            data: i,
+            success: function (response) {
+                $("#soc").html(response);
+                swal("Good job!", "You clicked the button!", "success");
+            },
+            error: function (response) {
+                $("#soc").html(response);
+                console.error(response);
+            }
+        })
+    }
+</script>

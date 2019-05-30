@@ -1,0 +1,25 @@
+﻿@model IEnumerable<OnlineCv.WebUI.Models.Entity.ProfessionalExperience>
+@foreach (var item in Model)
+{
+    <!-- Wordpress Developer -->
+    <div class="exp">
+        <div class="media-left"> <span class="sun">@item.Duration</span> </div>
+        <div class="media-body">
+
+            <!-- COmpany Logo -->
+            <div class="company-logo"> <img src="@(string.IsNullOrWhiteSpace(item.MediaUrl)?"":Href("~/Template/media/"+item.MediaUrl))" style="overflow:hidden; width: 150px" alt=""> </div>
+            <h6>@item.JobTitle</h6>
+            <p>@item.CompanyName</p>
+            <p>@item.Location</p>
+            <p> @item.Details</p>
+            <button class="btn btn-sm btn-warning"
+                    type="button"
+                    data-toggle="modal"
+                    data-target="#answer1"
+                    onclick="openModal1(@item.Id)">
+                <i>Edit</i>
+            </button>
+            <button class="btn btn-sm" type="button" onclick="delE(@item.Id)">Delete</button>
+        </div>
+    </div>
+}

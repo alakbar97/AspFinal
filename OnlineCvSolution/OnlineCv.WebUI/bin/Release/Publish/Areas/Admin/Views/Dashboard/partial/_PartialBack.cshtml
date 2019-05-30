@@ -1,0 +1,50 @@
+﻿@model OnlineCv.WebUI.Models.Entity.AcademicBackground
+<form id="modal" method="post" enctype="multipart/form-data">
+    <input name="id" value="@Model.Id" type="hidden" />
+    <div class="form-group">
+        @Html.LabelFor(model => model.Qualification, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.Qualification, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Qualification, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.Degree, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.Degree, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Degree, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.UniversityName, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.UniversityName, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.UniversityName, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.YearofObtention, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.YearofObtention, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.YearofObtention, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.Details, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.Details, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Details, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    @*<div class="form-group">
+        @Html.LabelFor(model => model.mediaUrl, htmlAttributes: new { @class = "control-label" })
+        <label class="form-control image-container" style="height: 250px;">
+            <img src="@(string.IsNullOrWhiteSpace(Model.mediaUrl)?"":Href("~/Template/media/"+Model.mediaUrl))" id="newsimage2" />
+            <i class="empty-icon"></i>
+            <a href="javascript:removePhoto2()"><i class="clear-icon header-right-button"></i></a>
+            @Html.EditorFor(model => model.mediaUrl,
+                    new { htmlAttributes = new { @class = "form-control", type = "file",style="display:none", accept = "image/*", onchange= "readURL2(this)",id= "mediaUrl2" } })
+        </label>
+        @Html.ValidationMessageFor(model => model.mediaUrl, "", new { @class = "text-danger" })
+    </div>*@
+</form>

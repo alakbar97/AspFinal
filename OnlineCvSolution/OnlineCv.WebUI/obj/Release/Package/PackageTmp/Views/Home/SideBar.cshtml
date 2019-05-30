@@ -1,0 +1,47 @@
+﻿@model OnlineCv.WebUI.Models.Entity.PersonDetails
+@{ 
+    Layout = null;
+}
+<div class="col-md-4">
+    <div class="side-bar">
+
+        <!-- Professional Details -->
+        <h5 class="tittle">Professional Details</h5>
+        <img src="@(string.IsNullOrWhiteSpace(Model.MediaUrl)?"":Href("~/Template/media/"+Model.MediaUrl))" class="img-responsive" alt="">
+        <ul class="personal-info">
+            <li>
+                <p> <span> Name</span> @Model.Name </p>
+            </li>
+            <li>
+                <p> <span> Age</span> @Model.Age </p>
+            </li>
+            <li>
+                <p> <span> Location</span> @Model.Location </p>
+            </li>
+            <li>
+                <p> <span> Experience</span> @Model.Experience </p>
+            </li>
+            <li>
+                <p> <span> Degree</span> @Model.Degree </p>
+            </li>
+            <li>
+                <p> <span> Career Level</span> @Model.CareerLevel </p>
+            </li>
+            <li>
+                <p> <span> Phone</span> @Model.Phone </p>
+            </li>
+            <li>
+                <p> <span> FAX</span> @Model.Fax </p>
+            </li>
+            <li>
+                <p> <span> E-mail</span> <a href="#."> @Model.Email</a> </p>
+            </li>
+            <li>
+                <p> <span> Website</span><a href="#.">@Model.Website </a></p>
+            </li>
+
+        </ul>
+
+       @Html.Action("Sc","Home")
+    </div>
+</div>

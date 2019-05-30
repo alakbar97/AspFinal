@@ -1,0 +1,79 @@
+﻿@model IEnumerable<OnlineCv.WebUI.Models.Entity.Bio>
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<!-- RESUME -->
+<div>
+    <div class="inside-sec">
+        <!-- BIO AND SKILLS -->
+        <h5 class="tittle">Bio & Skills</h5>
+        @foreach (var item in Model)
+        {
+            <p>
+                @item.Description
+            </p>
+        }
+        <div class="bio-info padding-30">
+            @foreach (var item in Model)
+            {
+                <div class="skills">
+                    <!-- Sound Engineering -->
+                    <div class="panel-group accordion" id="#accordion5">
+                        <div class="panel panel-default">
+                            @if (item.IsBar == true)
+                            {
+
+                            <div class="row">
+                                <div class="col-sm-4">
+                                    <!-- PANEL HEADING -->
+                                    <div class="panel-heading">
+                                        <h4 class="panel-title"> <a data-toggle="collapse" data-parent="#accordion5" href="#@item.Id"> @item.Skill.Name</a> </h4>
+                                    </div>
+                                </div>
+
+                                <!-- Skillls Bars -->
+                                <div class="col-sm-8">
+                                    <div class="progress">
+                                        <div class="progress-bar" role="progressbar" aria-valuenow="@item.SkillLevel" aria-valuemin="0" aria-valuemax="100" style="width: @item.SkillLevel%;"> <span class="sr-only">@item.SkillLevel% Complete</span> </div>
+                                    </div>
+
+                                    <!-- Skillls Text -->
+                                    <div id="@item.Id" class="panel-collapse collapse in">
+                                        <div class="panel-body">
+                                            <p>@item.SkillDescription</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            }
+                        </div>
+                    </div>
+                </div>
+
+            }
+            <hr />
+        </div>
+
+
+
+        <div class="ethical">
+            @foreach (var item in Model)
+            {
+                if (item.IsTag == true)
+                {
+                    <!-- Follow ethical -->
+
+                    <a href="#.">@item.Skill.Name</a>
+
+
+                }
+
+            }
+        </div>
+    </div>
+
+    @Html.Action("ProExperience", "Home")
+
+    @Html.Action("AcBack", "Home")
+</div>

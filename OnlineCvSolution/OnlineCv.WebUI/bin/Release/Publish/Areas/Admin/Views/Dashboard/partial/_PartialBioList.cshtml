@@ -1,0 +1,54 @@
+﻿@model IEnumerable<OnlineCv.WebUI.Models.Entity.Bio>
+<div class="inside-sec">
+    @foreach (var item in Model)
+    {
+        <input value="@item.Id" name="id" type="hidden" />
+        <p>
+            @item.Description
+        </p>
+        <div class="bio-info padding-30">
+            <div class="skills">
+                <div class="panel-group accordion" id="#accordion5">
+                    <div class="panel panel-default">
+                        @if (item.IsBar == true)
+                        {
+
+                            <div class="row">
+                                <div class="col-sm-4">
+                                    <!-- PANEL HEADING -->
+                                    <div class="panel-heading">
+                                        <h4 class="panel-title"> <a data-toggle="collapse" data-parent="#accordion" href="#@item.Id" class="collapsed"> @item.Skill.Name</a> </h4>
+                                    </div>
+                                </div>
+
+                                <!-- Skillls Bars -->
+                                <div class="col-sm-8">
+                                    <div class="progress">
+                                        <div class="progress-bar" role="progressbar" aria-valuenow="@item.SkillLevel" aria-valuemin="0" aria-valuemax="100" style="width: @item.SkillLevel%;"> <span class="sr-only">@item.SkillLevel% Complete</span> </div>
+                                    </div>
+
+                                    <!-- Skillls Text -->
+                                    <div id="@item.Id" class="panel-collapse collapse in">
+                                        <div class="panel-body">
+                                            <p>@item.SkillDescription</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                        <div class="ethical">
+                            @if (item.IsTag == true)
+                            {
+                                <a href="#.">@item.Skill.Name</a>
+                            }
+                        </div>
+                        <button type="button" onclick="openModal11(@item.Id)" class="btn btn-primary" data-toggle="modal" data-target="#myModal">Edit</button>
+                    </div>
+                </div>
+            </div>
+
+
+            <hr />
+        </div>
+    }
+</div>

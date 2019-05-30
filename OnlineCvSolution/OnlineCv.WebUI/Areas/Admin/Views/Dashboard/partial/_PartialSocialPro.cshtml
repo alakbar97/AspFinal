@@ -1,0 +1,24 @@
+﻿@model OnlineCv.WebUI.Models.Entity.SocialProfiles
+<ul>
+    <li>
+        <i class="fa fa-facebook"></i>
+        <input class="form-control" type="text" name="facebook" value="@Model.Facebook">
+    </li>
+    <li>
+        <i class="fa fa-twitter"></i>
+        <input class="form-control" type="text" name="twitter" value="@Model.Twitter">
+    </li>
+    <li>
+        <i class="fa fa-google-plus"></i>
+        <input class="form-control" type="text" name="google" value="@Model.Google">
+    </li>
+    <li>
+        <i class="fa fa-linkedin"></i>
+        <input class="form-control" type="text" name="linked" value="@Model.Linked">
+    </li>
+    <li>
+        <i class="fa fa-skype"></i>
+        <input class="form-control" type="text" name="skype" value="@Model.Skype">
+    </li>
+</ul> <br />
+      <button type="button" onclick="addPro()" class="btn btn-sm">Add</button>
